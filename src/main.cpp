@@ -7,8 +7,8 @@
 
 int main () {
     bool out = false;
-    std::string configName = "config";
-    std::string mapName = "maps";
+    std::string configName = "../config";
+    std::string mapName = "../maps";
     std::string recordName = "record";
     try {
     fs::create_directories(configName);
