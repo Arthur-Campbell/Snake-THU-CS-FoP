@@ -1,9 +1,21 @@
 #include "introduction.h"
 #include "menu.h"
+#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
+#include <experimental/filesystem>
+#include <string>
 #include <iostream>
 
 int main () {
     bool out = false;
+    std::string configName = "config";
+    std::string mapName = "maps";
+    std::string recordName = "record";
+    try {
+    fs::create_directories(configName);
+    fs::create_directories(mapName);
+    fs::create_directories(recordName);
+    }
+    catch (const std::experimental::filesystem::filesystem_error& e) {}
     while(out == false){
     system("cls");
     std::cout << "Snake" << std::endl;
