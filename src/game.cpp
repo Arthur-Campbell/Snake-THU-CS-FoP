@@ -12,8 +12,10 @@
 #include <string>
 #include <vector>
 
+/// @brief 标记游戏是否结束
 static bool gameover = false;
 
+/// @brief 打印配置名和地图名
 void printConfAndMapName(P mapsize, std::string m, std::string c) {
     gotoxy(0, mapsize.y + 5);
     std::cout<<"Map:            "<< m;
