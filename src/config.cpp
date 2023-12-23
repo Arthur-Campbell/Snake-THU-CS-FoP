@@ -5,6 +5,7 @@
 #include <io.h>
 #include "config.h"
 
+//构造函数，也是默认配置
 Config::Config(){
         difficulty = 1;
         seed = -1;
@@ -14,6 +15,7 @@ Config::Config(){
         three = 0.1;
 }
 
+//根据配置设置随机种子
 void Config::init(){
     if(seed == -1){
         seed = time(NULL);
@@ -21,6 +23,7 @@ void Config::init(){
     srand(seed);
 }
 
+//载入配置文件，主要流程是：读入有效文件名，将文件内容读入并对config赋值，返回一个配置文件的config
 Config readConfig(std::string &s) {
         system("cls");
         Config config = Config();
@@ -51,6 +54,7 @@ Config readConfig(std::string &s) {
         return config;
 }
 
+//
 void writeConfig(){
     system("cls");
     std::cout<<"input configuration name(only support English characters, numbers, underscores, slashes, press 'q' and enter to exit)"<<'\n';
