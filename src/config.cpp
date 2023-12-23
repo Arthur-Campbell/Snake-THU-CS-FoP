@@ -54,14 +54,14 @@ Config readConfig(std::string &s) {
         return config;
 }
 
-//
+//创建配置，主要流程为:获取有效文件名， 读入用户输入，按照顺序写入文件
 void writeConfig(){
     system("cls");
     std::cout<<"input configuration name(only support English characters, numbers, underscores, slashes, press 'q' and enter to exit)"<<'\n';
     std::string name;
     std::cin>>name;
     std::string filename = "../config/" + name + ".config";
-
+        //写入难度
     std::cout<<"input difficulty(1-10):"<<'\n';
     int difficulty;
     while(1){
@@ -71,7 +71,7 @@ void writeConfig(){
         std::cout<<"difficulty must be between 1 and 10, please re-enter"<<'\n';
     }
     }
-
+        //写入随机种子
     std::cout<<"please input seed(-1 for random seed):"<<'\n';
     long long seed;
     while(1){
@@ -81,7 +81,7 @@ void writeConfig(){
         std::cout<<"seed must be greater than -2, please re-enter"<<'\n';
     }
     }
-
+        //写入苹果数量
     std::cout<<"please input apple number(1-5)"<<'\n';
     int applenum;
     while(1){
@@ -91,7 +91,7 @@ void writeConfig(){
         std::cout<<"appple number must be between 1 and 5, please re-enter"<<'\n';
     }
     }
-
+        //写入三种分数苹果的概率
     std::cout<<" please input apple probability in the format of \'one\'  \'two\'  \'three\'(0-1)"<<'\n';
     double one,two,three;
     while(1){
@@ -106,6 +106,7 @@ void writeConfig(){
     if(!fout.is_open()){
         std::cerr<<"Error: Can't create file"<<std::endl;
     }
+        //按顺序写入
     fout<<difficulty<<std::endl<<seed<<std::endl<<applenum<<std::endl<<one<<" "<<two<<" "<<three;
     fout.close();
 }
