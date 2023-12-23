@@ -8,7 +8,7 @@
 #define P_H
 
 struct P {
-    int x, y;
+    int x, y;    //分别为横、纵坐标
     int  points;//标记苹果的分值
     P(int x = 0, int y = 0,int points = 1) : x(x), y(y), points(points){}
     P operator+(const P &b) const { return P(x + b.x, y + b.y); }
