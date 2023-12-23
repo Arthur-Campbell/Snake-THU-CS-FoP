@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include "P.h"
 
 #ifndef MAP_H
@@ -21,38 +22,18 @@ struct Map {
         up = 1;
         down = 1;
         obstacleNum = 0;
-        buildMap();
     }
 
     /// @brief 根据地图虚实生成地图
-    void buildMap(){
-        obstacle.clear();
-        if(left == 1){
-            for(int i = 0; i <= mapsize.y; i++){
-            obstacle.push_back(P(0,i));
-        }
-        }
-        if(up == 1){
-            for(int i = 0; i <= mapsize.x; i++){
-            obstacle.push_back(P(i,0));
-        }
-        }
-        if(right == 1){
-            for(int i = 0; i <= mapsize.y; i++){
-            obstacle.push_back(P(mapsize.x,i));
-        }
-        }
-        if(down == 1){
-            for(int i = 0; i <= mapsize.y; i++){
-            obstacle.push_back(P(i,mapsize.y));
-        }
-        }
-    }
+    void buildMap();
+
+    /// @brief 打印地图
+    void printMap();
 };
 
 /// @brief 写入地图文件
 void writeMap();
 
 /// @brief 读取地图文件
-Map readMap();
+Map readMap(std::string &s);
 #endif

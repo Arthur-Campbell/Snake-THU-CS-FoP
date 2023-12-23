@@ -15,17 +15,13 @@ Config::Config(){
 }
 
 void Config::init(){
-        int temp =0;
-        if(seed == -1){
-            temp = time(NULL);
-        }
-        else{
-            temp = seed;
-        }  
-        srand(temp);
+    if(seed == -1){
+        seed = time(NULL);
+    }
+    srand(seed);
 }
 
-Config readConfig() {
+Config readConfig(std::string &s) {
         system("cls");
         Config config = Config();
         std::string name;
@@ -33,10 +29,12 @@ Config readConfig() {
         while(1)  {
             std::cin>>name;
             if(name == "q") {
+                s = "default";
                 return config;
             }
-            std::string filename = "config/" + name + ".config";
-            std::ifstream file(filename);
+            s = name;
+            std::string filename = "../config/" + name + ".config";
+            std::fstream file(filename, std::ios::in);
             if(file.is_open()) {
             file >> config.difficulty;
             file >> config.seed;
@@ -49,6 +47,7 @@ Config readConfig() {
                 std::cout<<"No such configuration, please re-enter the configuration name"<<std::endl;
             }
         }
+        std::cout << "Configuration load successfully" << std::endl;
         return config;
 }
 
@@ -57,8 +56,7 @@ void writeConfig(){
     std::cout<<"input configuration name(only support English characters, numbers, underscores, slashes, press 'q' and enter to exit)"<<'\n';
     std::string name;
     std::cin>>name;
-    std::string filename = "config/" + name;
-    filename   = filename + ".config";
+    std::string filename = "../config/" + name + ".config";
 
     std::cout<<"input difficulty(1-10):"<<'\n';
     int difficulty;
@@ -71,7 +69,7 @@ void writeConfig(){
     }
 
     std::cout<<"please input seed(-1 for random seed):"<<'\n';
-    int seed;
+    long long seed;
     while(1){
     std::cin>>seed;
     if(seed>-2) break;
@@ -100,12 +98,10 @@ void writeConfig(){
         std::cout<<" the sum of three probability must be 1, please re-enter"<<'\n';
     }
     }
-
-    std::ofstream fout;
-    fout.open(filename, std::ios::out);
+    std::fstream fout(filename, std::ios::out);
     if(!fout.is_open()){
         std::cerr<<"Error: Can't create file"<<std::endl;
     }
     fout<<difficulty<<std::endl<<seed<<std::endl<<applenum<<std::endl<<one<<" "<<two<<" "<<three;
-    fclose(stdout);
+    fout.close();
 }
