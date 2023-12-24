@@ -1,0 +1,14 @@
+﻿  config.cpp
+C:\Users\18314\Desktop\大作业展示\snake\src\config.cpp(22,11): warning C4244: 'argument': conversion from '__int64' to 'unsigned int', possible loss of data
+  game.cpp
+  introduction.cpp
+  main.cpp
+C:\Users\18314\Desktop\大作业展示\snake\src\main.cpp(21,67): warning C4101: 'e': unreferenced local variable
+  map.cpp
+C:\Users\18314\Desktop\大作业展示\snake\src\map.cpp(154,40): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  menu.cpp
+  print.cpp
+  record.cpp
+  snake.cpp
+  Generating Code...
+  snake.vcxproj -> C:\Users\18314\Desktop\大作业展示\snake\snake\x64\Debug\snake.exe
