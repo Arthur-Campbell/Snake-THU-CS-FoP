@@ -18,9 +18,8 @@
 
 ## 使用方法
 
-在下载最新版release,点击运行bin文件夹下的snake，快捷方式可能由于寻址方式不同而失效。当然也可以把源代码扒下来，自己写makefile文件或者用指令编译调试更新。
-可能有部分编译器，例如作者vscode配置的gcc，不支持某些高级特性。如果需要运行项目出现问题，可以使用visual studio。经过作者测试，
-visual studio可以完美运行项目。
+在下载最新版release,点击运行bin文件夹下的snake。当然也可以把源代码扒下来，自己写makefile文件或者用指令编译调试更新。
+如果运行项目时出现问题，可以使用visual studio。经过作者测试，visual studio可以完美运行项目。
 
 ## 作者联系方式
 
